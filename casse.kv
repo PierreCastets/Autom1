@@ -1,0 +1,55 @@
+#:kivy 1.10.1
+
+<CassePaddle>:
+    size: 100, 15
+    canvas:
+        Rectangle:
+            source: "bois.jpg"
+            pos:self.pos
+            size:self.size
+
+<CasseBall>:
+    size: 12, 12
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<CasseBrique>:
+    canvas:
+        Rectangle:
+            source: "cover2.jpg"
+            pos: self.pos
+            size: self.size
+
+<CasseMetal>:
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<CasseGame>:
+    ball: casse_ball
+    player: player
+    canvas:
+        Rectangle:
+            source: "ciel.png"
+            size: root.size
+
+    TextInput2:
+        x: 10
+        y: 10
+        font_size: 30
+        text: str(root.score)
+
+    CasseBall:
+        id: casse_ball
+        center: self.parent.center
+
+    CassePaddle:
+        id: player
+        center_x: root.center_x
+        y: root.y
+
+
+
